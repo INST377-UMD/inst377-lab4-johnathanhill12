@@ -1,29 +1,37 @@
-<!DOCTYPE html>
-<html> 
+<html>
     <head>
-        <title> Lab 4 </title>
+        <title> INST377 - Form Validation</title>
     </head>
+
     <body>
-        <h1 id="word"> <b>INST - Lab 4</b> </h1>
+        <form name="contactForm" onsubmit="return formValidation(); return false;" action="https://www.google.com">
+            <label for="firstName">First Name:</label>
+            <input type="text" placeholder="JJ" id="firstName" required>
+            <br>
+            <input type="submit">
 
-        <button onclick="changeColor()">Change the colour</button>
-
-        <!-- Javascript Code -->
+        </form>
+        
+        <!-- Javascript Code  -->
         <script type="text/javascript">
-            function changeColor() {
-                console.log("Attempting to change color of text, current color is: ", document.getElementById("word").style.color)
+            function formValidation() {
+                console.log('Validating user input:', document.contactForm.firstName.value)
+                const validationRegex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+                if(document.contactForm.firstName.value.trim() == "") {//remove any whitespace and check if empty 
+                    document.body.style.backgroundColor = 'orange'
+                    alert("enter a valid first name")
 
-                document.getElementById("word").style.color = 'red';
-                console.log("Successfully changed color of text, new color is: ", document.getElementById("word").style.color)
+                    return false;
+                } 
+                
+                if (validationRegex.test(document.contactForm.firstName.value)) {
+                    document.body.style.backgroundColor = 'red';
+                    alert('How about...... nah :(')
+                    
+                    return false;
+                }
             }
 
         </script>
-
-
     </body>
-
-
-
-
-
 </html>

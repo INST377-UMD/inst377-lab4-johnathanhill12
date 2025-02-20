@@ -1,0 +1,30 @@
+body {
+    background-color: skyblue;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.main-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    
+}
+
+.content-box, #change {
+    flex:1;
+    max-width: 48%;
+    background-color: aquamarine;
+    color: black;
+    border: 2px solid black;
+    padding: 5px;
+    border-radius: 15px;
+    margin: 10px;
+}
+
+#change {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+}
+

@@ -1,17 +1,53 @@
 <html>
     <head>
         <title> INST377 - Form Validation</title>
+        <link rel="stylesheet" href="Lab4-HTMLlayout.css" />
     </head>
 
     <body>
-        <form name="contactForm" onsubmit="return formValidation(); return false;" action="https://www.google.com">
-            <label for="firstName">First Name:</label>
-            <input type="text" placeholder="JJ" id="firstName" required>
-            <br>
-            <input type="submit">
+        <!-- Header Section -->
+        <header id="bar">
+            <h1>INST377-Lab 4</h1>
+        </header>
 
-        </form>
-        
+        <!-- Main content section  -->
+    <div class = "container">
+        <div class="main-container">
+            <div class="content-box">
+                <form>
+                    <label for="name">Name: </label>
+                    <input required type="text" id="name" placeholder="Johnathan Hill"/>
+                    <input type="button" value="Alert Me!" />
+                </form>
+            </div>
+                
+            
+            
+            <aside id="change">
+                <form>
+                    <input type="button" value="Change Color!" />
+                </form>
+            </aside>
+        </div>
+
+        <div class="main-container">
+            <div class="content-box">
+                <form>
+                    <label for="Text Tester:">Text Tester: </label>
+                    <input required type="text" id="name" placeholder="Johnathan Hill"/>
+                    <input type="button" value="Validate Text" />
+                </form>
+            </div>
+                
+            
+            
+            <aside id="change">
+                <form>
+                    <input type="button" value="Add Text" />
+                </form>
+            </aside>
+        </div>
+    </div>
         <!-- Javascript Code  -->
         <script type="text/javascript">
             function formValidation() {
@@ -31,7 +67,7 @@
                     return false;
                 }
             }
-
+        
         </script>
     </body>
 </html>

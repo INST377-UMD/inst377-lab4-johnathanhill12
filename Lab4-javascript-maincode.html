@@ -7,17 +7,18 @@
     <body>
         <!-- Header Section -->
         <header id="bar">
-            <h1>INST377-Lab 4</h1>
+            <h1 id="main-header"> INST377 - Lab 4 </h1>
         </header>
 
         <!-- Main content section  -->
     <div class = "container">
         <div class="main-container">
             <div class="content-box">
-                <form>
+                <!-- Alert Form Section -->
+                <form name="alertForm" onsubmit="return alertMe();">
                     <label for="name">Name: </label>
-                    <input required type="text" id="name" placeholder="Johnathan Hill"/>
-                    <input type="button" value="Alert Me!" />
+                    <input required type="text" name="nameINP" placeholder="Johnathan Hill"/>
+                    <input type="submit" value="Alert Me!" />
                 </form>
             </div>
                 
@@ -25,17 +26,19 @@
             
             <aside id="change">
                 <form>
-                    <input type="button" value="Change Color!" />
+                    <!-- Change Color Button -->
+                    <input type="button" value="Change Color!" onclick="changeColor();"/>
                 </form>
             </aside>
         </div>
 
         <div class="main-container">
             <div class="content-box">
-                <form>
-                    <label for="Text Tester:">Text Tester: </label>
-                    <input required type="text" id="name" placeholder="Johnathan Hill"/>
-                    <input type="button" value="Validate Text" />
+                <!-- Text Validation Section -->
+                <form name="textForm" onsubmit="return textValidation();" action="https://www.reddit.com/" target="_blank">
+                    <label for="textTester">Text Tester: </label>
+                    <input required type="text" id="textTester" name="textTester" placeholder="Johnathan Hill"/>
+                    <input type="submit" value="Validate Text" />
                 </form>
             </div>
                 
@@ -43,31 +46,61 @@
             
             <aside id="change">
                 <form>
-                    <input type="button" value="Add Text" />
+                    <!-- Add text button -->
+                    <input type="button" value="Add Text" onclick="addText();" />
                 </form>
             </aside>
         </div>
     </div>
         <!-- Javascript Code  -->
         <script type="text/javascript">
-            function formValidation() {
-                console.log('Validating user input:', document.contactForm.firstName.value)
-                const validationRegex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
-                if(document.contactForm.firstName.value.trim() == "") {//remove any whitespace and check if empty 
-                    document.body.style.backgroundColor = 'orange'
-                    alert("enter a valid first name")
+            // Alert Me form function
+            function alertMe() {
+                console.log('Alerting name input:', document.alertForm.nameINP.value);
+                let name = document.alertForm.nameINP.value.trim();
 
+                if (name === "") {
                     return false;
-                } 
-                
-                if (validationRegex.test(document.contactForm.firstName.value)) {
-                    document.body.style.backgroundColor = 'red';
-                    alert('How about...... nah :(')
-                    
+                } else {
+                    alert("Hi " + name + "!");
                     return false;
                 }
             }
-        
+
+            // Text Validation function
+            function textValidation() {
+                console.log('Validating user input:', document.textForm.textTester.value)
+                const validationRegex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+                if(document.textForm.textTester.value.trim() == "") {//remove any whitespace and check if empty 
+                    alert("enter valid text");
+                    return false;
+                } 
+                
+                if (validationRegex.test(document.textForm.textTester.value)) {
+                    alert('Enter valid text bud :(');
+                    return false;
+                }
+
+                return true;
+            }
+
+                // Change color function
+                function changeColor() {
+                    let currentColor = document.body.style.backgroundColor;
+
+                    if (currentColor === "skyblue") {
+                        document.body.style.backgroundColor = "green";
+                    } else {
+                        document.body.style.backgroundColor = "skyblue";
+                    }
+                }
+                
+                // Add text function
+                function addText() {
+                    let header = document.getElementById("main-header");
+                    header.innerText += " Add Text";
+                }
+
         </script>
     </body>
 </html>

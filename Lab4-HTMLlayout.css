@@ -12,8 +12,25 @@ body {
     
 }
 
-.content-box, #change {
+.content-box {
     flex:1;
+    max-width: 48%;
+    height: 60px;
+    background-color: rgb(6, 41, 97);
+    color: white;
+    border: 2px solid white;
+    padding: 5px;
+    border-radius: 15px;
+    margin: 10px;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    text-align: center;
+    
+}
+
+#change {
+    flex: 1;
     max-width: 48%;
     background-color: rgb(6, 41, 97);
     color: white;
@@ -21,11 +38,9 @@ body {
     padding: 5px;
     border-radius: 15px;
     margin: 10px;
-}
-
-#change {
     display: flex;
     justify-content: center; 
     align-items: center; 
+    text-align: center;
 }
 
